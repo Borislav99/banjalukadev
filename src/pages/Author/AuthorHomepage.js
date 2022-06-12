@@ -1,13 +1,7 @@
 // react stuff
 import React from "react";
 // components
-import {
-  Header,
-  Main,
-  AdminSidebar,
-  AdminDashboard,
-  Sidebar,
-} from "../../components/Author";
+import { AdminDashboard } from "../../components/Author";
 const AuthorHomepage = () => {
   return (
     <>

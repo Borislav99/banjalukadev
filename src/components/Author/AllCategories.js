@@ -18,7 +18,6 @@ const AllCategories = () => {
       <div className="add-category-container">
         <span>dodaj kategoriju</span>
         <span>
-          {/* <i>{plus}</i> */}
           <Link
             to={"/autor/kategorije/dodaj-kategoriju"}
             className="span-link-add"

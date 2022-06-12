@@ -1,12 +1,11 @@
 // react stuff
 import { React, useState, useEffect } from "react";
-// css
 // assets
 import { userIcon, lockIcon } from "../utils/fontawesome";
 // context stuff
 import { useAuthorContext } from "../context/author_context";
 // router
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 const Error = () => {
@@ -17,10 +16,12 @@ const Error = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   // check if auth
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (isAuth) {
       history("/autor");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuth]);
   return (
     <Body>
@@ -38,7 +39,6 @@ const Error = () => {
           ) : null}
           <div className="form-input">
             <label className="input-icon" htmlFor="username">
-              {/* <i class="fas fa-user"></i> */}
               <i className="fontawesome">{userIcon}</i>
             </label>
             <input
@@ -77,9 +77,6 @@ const Error = () => {
         </form>
         <p>
           Dobrodosli autore! <Link to={"/sr"}>Nazad na pocetnu. </Link>
-          {/* <span>
-          <i class="fas fa-arrow-alt-right"></i>
-        </span> */}
         </p>
       </Wrapper>
     </Body>

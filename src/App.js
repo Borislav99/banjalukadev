@@ -1,19 +1,10 @@
 import "./App.css";
 // router
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Redirect,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // context stuf
 import { useAuthorContext } from "./context/author_context";
 // general pages
 import { Error, Login } from "./pages/index";
-// general components
-import { ScrollToTop } from "./components";
 // user pages
 import {
   UserSharedLayout,
@@ -40,10 +31,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <ScrollToTop /> */}
         {/* user routes */}
         <Route path="/" element={<UserSharedLayout />}>
-          {/* <Route index element={<Navigate to={"sr"} replace />} /> */}
           <Route index element={<UserHomepage />} />
           <Route path="objave" element={<UserPosts />} />
           <Route path="o-nama" element={<About />} />

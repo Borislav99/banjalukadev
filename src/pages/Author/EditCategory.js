@@ -1,13 +1,7 @@
 // react stuff
 import React from "react";
 // components
-import {
-  Header,
-  Main,
-  AdminSidebar,
-  EditCategory,
-  Sidebar,
-} from "../../components/Author";
+import { EditCategory } from "../../components/Author";
 // context
 import { useAuthorContext } from "../../context/author_context";
 // assets

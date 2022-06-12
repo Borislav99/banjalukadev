@@ -3,7 +3,6 @@ import { React, useState } from "react";
 // context stuff
 import { useAuthorContext } from "../../context/author_context";
 // router
-// import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // styled components
 import styled from "styled-components";

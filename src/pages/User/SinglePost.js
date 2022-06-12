@@ -3,14 +3,7 @@ import { useParams } from "react-router-dom";
 // general components
 import { Loading } from "../../components/index";
 // user components
-import {
-  Header,
-  PageHero,
-  SingleUserPost,
-  Sidebar,
-  Footer,
-  Video,
-} from "../../components/User";
+import { PageHero, SingleUserPost, Video } from "../../components/User";
 // context
 import { useUserContext } from "../../context/user_context";
 const SinglePost = () => {
@@ -18,6 +11,7 @@ const SinglePost = () => {
   const { getSinglePost, singlePost } = useUserContext();
   useEffect(() => {
     getSinglePost(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   if (singlePost) {
     return <Loading />;

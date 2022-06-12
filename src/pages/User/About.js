@@ -1,12 +1,6 @@
 import React from "react";
 // components
-import {
-  Header,
-  PageHero,
-  UserAbout,
-  Sidebar,
-  Footer,
-} from "../../components/User";
+import { PageHero, UserAbout } from "../../components/User";
 const About = () => {
   return (
     <>

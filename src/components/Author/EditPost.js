@@ -1,5 +1,5 @@
 // react stuff
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import MarkdownEditor from "@uiw/react-markdown-editor";
 // context stuff
 import { useAuthorContext } from "../../context/author_context";
@@ -112,10 +112,6 @@ const AddCategory = () => {
               multiple
               onChange={(e) => {
                 const files = e.target.files;
-                // const form = new FormData();
-                // for (let i = 0; files.length > i; i++) {
-                //   form.append("files", files[i], files[i].name);
-                // }
                 setOtherImages(files);
               }}
             />

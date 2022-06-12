@@ -10,7 +10,6 @@ import MDEditor from "@uiw/react-md-editor";
 import { Link } from "react-router-dom";
 // styled componets
 import styled from "styled-components";
-// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useNavigate } from "react-router-dom";
 const SingleUserPost = () => {
   // hooks
@@ -27,6 +26,7 @@ const SingleUserPost = () => {
       }
     }
     changeActiveLink("objave");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [singleProduct]);
   // single post data
   const { title, categoryName, main_img, gallery, text, authorName, date } =
@@ -80,9 +80,6 @@ const SingleUserPost = () => {
                   showFullscreenButton={false}
                   showPlayButton={false}
                 />
-                {/* <div className="single-post-img-container">
-                  <img src={main_img} alt="" />
-                </div> */}
               </div>
               {/* end of img gallery */}
               <div className="single-post-btn-container">

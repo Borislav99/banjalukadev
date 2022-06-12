@@ -1,9 +1,8 @@
 // react stuff
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 // context stuff
 import { useAuthorContext } from "../../context/author_context";
 // router
-// import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // styled components
 import styled from "styled-components";
@@ -47,7 +46,6 @@ const AddCategory = () => {
             e.preventDefault();
             updateCategory(categoryName, username, _id);
             history(-1);
-            // history("/sr/autor/kategorije");
           }}
         >
           <div className="form-control">

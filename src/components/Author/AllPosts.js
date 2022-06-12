@@ -23,9 +23,6 @@ const AllPosts = () => {
         <Link to={"/autor/objave/dodaj-objavu"} className="span-link-add">
           <i>{plus}</i>
         </Link>
-        {/* <a href="../admin-add-post/index.html">
-          <i class="fas fa-plus"></i>
-        </a> */}
       </div>
       {/* <!-- end of add category --> */}
       {/* <!-- category fields table --> */}
@@ -57,7 +54,6 @@ const AllPosts = () => {
                 }}
               >
                 <i>{trash}</i>
-                {/* <i class="fas fa-trash"></i> */}
               </p>
               <p className="edit-icon">
                 <Link

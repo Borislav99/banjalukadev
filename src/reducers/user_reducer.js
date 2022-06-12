@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 // actions
 import {
@@ -37,6 +38,8 @@ const user_reducer = (state, action) => {
       const newArray = state.posts.filter((item) => {
         if (item.categoryName === action.payload) {
           return item;
+        } else {
+          return state.posts;
         }
       });
       return { ...state, filteredPosts: newArray };
@@ -51,23 +54,5 @@ const user_reducer = (state, action) => {
   if (action.type === SET_SINGLE_POST) {
     return { ...state, singlePost: action.payload };
   }
-  //   if (action.type === SET_CURRENT_TUTORIAL) {
-  //     return { ...state, currentTutorial: action.payload };
-  //   }
-  //   if (action.type === OPEN_UPLOAD) {
-  //     return { ...state, upload: true };
-  //   }
-  //   if (action.type === CLOSE_UPLOAD) {
-  //     return { ...state, upload: false };
-  //   }
-  //   if (action.type === UPLOAD_LOADING) {
-  //     return { ...state, uploadLoading: action.payload };
-  //   }
-  //   if (action.type === OPEN_TUTORIAL) {
-  //     return { ...state, tutorial: true };
-  //   }
-  //   if (action.type === CLOSE_TUTORIAL) {
-  //     return { ...state, tutorial: false };
-  //   }
 };
 export default user_reducer;

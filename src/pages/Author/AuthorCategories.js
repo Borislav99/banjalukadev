@@ -3,13 +3,7 @@ import React from "react";
 // context
 import { useAuthorContext } from "../../context/author_context";
 // components
-import {
-  Header,
-  Main,
-  AdminSidebar,
-  AllCategories,
-  Sidebar,
-} from "../../components/Author";
+import { AllCategories } from "../../components/Author";
 import { Loading } from "../../components/Author";
 const AuthorCategories = () => {
   // context

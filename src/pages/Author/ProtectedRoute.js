@@ -7,22 +7,4 @@ const ProtectedRoute = ({ children, isAuth }) => {
   }
   return children;
 };
-// const ProtectedRoute = ({ isAuth, component: Component, ...rest }) => {
-// const location = useLocation();
-// return (
-//   <Route
-//     {...rest}
-//     render={(props) => {
-//       if (isAuth) {
-//         return <Component />;
-// } else {
-//   return (
-//     <Navigate to={{ pathname: "/sr" }} />
-// <Navigate to={{ pathname: "/sr", state: { from: location } }} />
-//           );
-//         }
-//       }}
-//     ></Route>
-//   );
-// };
 export default ProtectedRoute;

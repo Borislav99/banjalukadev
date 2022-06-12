@@ -1,15 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 // general components
 import { Loading } from "../../components/";
 // components
 import {
-  Header,
   Banner,
   Information,
   Parralax,
   RecentPosts,
-  Footer,
-  Sidebar,
 } from "../../components/User";
 // context stuff
 import { useUserContext } from "../../context/user_context";

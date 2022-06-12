@@ -4,7 +4,6 @@ import MarkdownEditor from "@uiw/react-markdown-editor";
 // context stuff
 import { useAuthorContext } from "../../context/author_context";
 // router
-// import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // styled components
 import styled from "styled-components";
@@ -105,10 +104,6 @@ const AddCategory = () => {
               multiple
               onChange={(e) => {
                 const files = e.target.files;
-                // const form = new FormData();
-                // for (let i = 0; files.length > i; i++) {
-                //   form.append("files", files[i], files[i].name);
-                // }
                 setOtherImages(files);
               }}
             />

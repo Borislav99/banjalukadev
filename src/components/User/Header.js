@@ -36,7 +36,7 @@ const Header = () => {
           const { title, url } = item;
           return (
             <li key={index}>
-              {/* dodaj aktivni link */}
+              {/* add active link */}
               <Link
                 className={activeLink === title ? "active-link" : null}
                 onClick={() => {

@@ -28,7 +28,6 @@ const PostsSection = () => {
                   <div className="information-container">
                     <span>
                       <i>{calendar}</i>
-                      {/* feb 16, 2018 */}
                       <span className="fontawesome">{date}</span>
                     </span>
                     <span>
@@ -83,6 +82,7 @@ const PostsSection = () => {
                     </li>
                   );
                 }
+                return null;
               })}
             </ul>
             {/* end of categories list */}

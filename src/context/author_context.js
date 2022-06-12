@@ -1,6 +1,6 @@
 // react stuff
 import React from "react";
-import { useContext, useReducer, useEffect } from "react";
+import { useContext, useReducer } from "react";
 import axios from "axios";
 // context stuff
 import reducer from "../reducers/author_reducer";
@@ -82,7 +82,7 @@ export const AuthorProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const req = await axios.post(
+    await axios.post(
       `${process.env.REACT_APP_BACK_END_API_KEY}/author/logout`,
       {},
       config
@@ -139,7 +139,7 @@ export const AuthorProvider = ({ children }) => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const req = await axios.post(
+        await axios.post(
           `${process.env.REACT_APP_BACK_END_API_KEY}/author/category`,
           {
             name: value,
@@ -166,7 +166,7 @@ export const AuthorProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const req = await axios.delete(
+      await axios.delete(
         `${process.env.REACT_APP_BACK_END_API_KEY}/author/category/${value}`,
         config
       );
@@ -222,7 +222,7 @@ export const AuthorProvider = ({ children }) => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const req = await axios.patch(
+        await axios.patch(
           `${process.env.REACT_APP_BACK_END_API_KEY}/author/category/${id}`,
           {
             name: value,
@@ -283,7 +283,7 @@ export const AuthorProvider = ({ children }) => {
         formData.append("youtube", youtube);
         formData.append("text", text);
         // send data
-        const req = await axios.post(
+        await axios.post(
           `${process.env.REACT_APP_BACK_END_API_KEY}/author/post`,
           formData,
           config
@@ -307,7 +307,7 @@ export const AuthorProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const req = await axios.delete(
+      await axios.delete(
         `${process.env.REACT_APP_BACK_END_API_KEY}/author/post/${value}`,
         config
       );
@@ -387,7 +387,7 @@ export const AuthorProvider = ({ children }) => {
         formData.append("youtube", youtube);
         formData.append("text", text);
         // send data
-        const req = await axios.patch(
+        await axios.patch(
           `${process.env.REACT_APP_BACK_END_API_KEY}/author/post/${id}`,
           formData,
           config

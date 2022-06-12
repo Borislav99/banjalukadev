@@ -44,7 +44,6 @@ export const UserProvider = ({ children }) => {
       const response = await axios.get(
         `${process.env.REACT_APP_BACK_END_API_KEY}/user/posts`
       );
-      console.log(response);
       dispatch({ type: SET_POSTS, payload: response.data.posts });
     } catch (error) {
       dispatch({ type: SET_POSTS, payload: [] });
