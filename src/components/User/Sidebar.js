@@ -20,7 +20,7 @@ const Sidebar = () => {
           banjaluka<span>dev</span>
         </Link>
         <span
-          className="sidebar-burger-menu"
+          className="aside-header__button"
           onClick={() => {
             sidebarFunction(false);
           }}
@@ -33,10 +33,12 @@ const Sidebar = () => {
         {userHeaderLinks.map((item, index) => {
           const { title, url } = item;
           return (
-            <li key={index} className="aside-list-item">
+            <li key={index} className="aside-links__item">
               <Link
                 to={url}
-                className={activeLink === title ? "active-aside-item" : null}
+                className={
+                  activeLink === title ? "aside-links__link--active" : null
+                }
                 onClick={() => {
                   sidebarFunction(false);
                   changeActiveLink(title);
@@ -73,7 +75,7 @@ const Wrapper = styled.aside`
     transition: var(--transition);
     font-weight: 999;
   }
-  .sidebar-burger-menu {
+  .aside-header__button {
     display: block;
     color: var(--clr-red);
   }
@@ -83,16 +85,16 @@ const Wrapper = styled.aside`
   .aside-links {
     margin-top: var(--margin-small);
   }
-  .aside-list-item {
+  .aside-links__item {
     display: block !important;
   }
-  .aside-list-item a {
+  .aside-links__item a {
     text-transform: capitalize;
   }
-  .aside-list-item:not(:last-child) {
+  .aside-links__item:not(:last-child) {
     margin-bottom: var(--margin-small);
   }
-  .active-aside-item {
+  .aside-links__link--active {
     color: var(--clr-white);
   }
   @media only screen and (min-width: 800px) {

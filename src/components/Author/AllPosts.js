@@ -19,19 +19,22 @@ const AllPosts = () => {
     <Wrapper>
       {/* <!-- add category --> */}
       <div className="add-category-container">
-        <span>dodaj objavu</span>
-        <Link to={"/autor/objave/dodaj-objavu"} className="span-link-add">
+        <span className="add-category-container__text">dodaj objavu</span>
+        <Link
+          to={"/autor/objave/dodaj-objavu"}
+          className="add-category-container__link"
+        >
           <i>{plus}</i>
         </Link>
       </div>
       {/* <!-- end of add category --> */}
       {/* <!-- category fields table --> */}
       <div className="category-fields-table">
-        <p>ime</p>
-        <p className="show-on-pc">autor</p>
-        <p className="show-on-pc">datum</p>
-        <p>obrisi</p>
-        <p>uredi</p>
+        <p className="category-fields-table__text">ime</p>
+        <p className="category-fields-table__text show-on-pc">autor</p>
+        <p className="category-fields-table__text show-on-pc">datum</p>
+        <p className="category-fields-table__text">obrisi</p>
+        <p className="category-fields-table__text">uredi</p>
       </div>
       {/* <!-- end of category fields table --> */}
       {/* <!-- all categories table --> */}
@@ -43,11 +46,15 @@ const AllPosts = () => {
               key={_id}
               className="category-fields-table single-category-field"
             >
-              <p>{title}</p>
-              <p className="show-on-pc">{authorName}</p>
-              <p className="show-on-pc">{convertDate(createdAt)}</p>
+              <p className="category-fields-table__text">{title}</p>
+              <p className="category-fields-table__text show-on-pc">
+                {authorName}
+              </p>
+              <p className="category-fields-table__text show-on-pc">
+                {convertDate(createdAt)}
+              </p>
               <p
-                className="delete-icon"
+                className="category-fields-table__text delete-icon"
                 onClick={() => {
                   deleteSinglePost(_id);
                   history("/autor/objave");
@@ -55,7 +62,7 @@ const AllPosts = () => {
               >
                 <i>{trash}</i>
               </p>
-              <p className="edit-icon">
+              <p className="category-fields-table__text edit-icon">
                 <Link
                   to={`/autor/objave/uredi-objavu/${_id}`}
                   onClick={() => {
@@ -79,12 +86,12 @@ const Wrapper = styled.article`
   .add-category-container {
     text-align: center;
   }
-  .add-category-container span {
+  .add-category-container__text {
     text-transform: uppercase;
     padding: calc(var(--padding-small) / 4) calc(var(--padding-small) / 2);
     transition: var(--transition);
   }
-  .add-category-container a {
+  .add-category-container__link {
     background-color: var(--clr-primary-5);
     border-radius: 50%;
     display: inline-block;
@@ -92,7 +99,7 @@ const Wrapper = styled.article`
     color: var(--clr-black-1);
     transition: var(--transition);
   }
-  .add-category-container a:hover {
+  .add-category-container__link:hover {
     cursor: pointer;
     background-color: var(--clr-black-1);
     color: var(--clr-white);
@@ -130,7 +137,7 @@ const Wrapper = styled.article`
     grid-column-gap: 1rem;
     padding: var(--padding-small);
   }
-  .category-fields-table p,
+  .category-fields-table__text,
   .category-fields-table a {
     text-align: center;
     margin-bottom: 0px;

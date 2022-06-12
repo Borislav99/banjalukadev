@@ -5,8 +5,8 @@ import loading from "../../assets/loading.gif";
 import styled from "styled-components";
 const Loading = () => {
   return (
-    <Wrapper>
-      <img src={loading} alt="" />
+    <Wrapper className="loading">
+      <img className="loading__img" src={loading} alt="loading" />
     </Wrapper>
   );
 };
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  & img {
+  .loading__img {
     width: 25%;
     max-width: 10rem;
   }

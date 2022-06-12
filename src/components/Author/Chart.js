@@ -16,8 +16,8 @@ import styled from "styled-components";
 const Chart = () => {
   const { dashboard } = useAuthorContext();
   return (
-    <Wrapper>
-      <p>broj objava po kategorijama</p>
+    <Wrapper className="chart">
+      <p className="chart__text">broj objava po kategorijama</p>
       <ResponsiveContainer width={"99%"} height={"100%"}>
         <LineChart data={dashboard}>
           <Line type="monotone" dataKey="counter" stroke="#8884d8" />
@@ -31,7 +31,7 @@ const Chart = () => {
   );
 };
 const Wrapper = styled.div`
-  p {
+  .chart__text {
     color: var(--black-1);
     text-transform: capitalize;
     font-weight: 999;
@@ -39,8 +39,6 @@ const Wrapper = styled.div`
   @media screen and (min-width: 500px) {
     display: block;
     height: calc(100vh - 53px - 444px - 32px - 21px - 16px);
-  }
-  @media screen and (min-width: 800px) {
   }
 `;
 export default Chart;

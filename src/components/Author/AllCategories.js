@@ -16,8 +16,8 @@ const AllCategories = () => {
     <Wrapper>
       {/* add category */}
       <div className="add-category-container">
-        <span>dodaj kategoriju</span>
-        <span>
+        <span className="add-category-container__text">dodaj kategoriju</span>
+        <span className="add-category-container__text">
           <Link
             to={"/autor/kategorije/dodaj-kategoriju"}
             className="span-link-add"
@@ -29,11 +29,11 @@ const AllCategories = () => {
       {/* end of add category */}
       {/* category fields table */}
       <div className="category-fields-table">
-        <p>ime</p>
-        <p className="show-on-pc">autor</p>
-        <p className="show-on-pc">datum</p>
-        <p>obrisi</p>
-        <p>uredi</p>
+        <p className="category-fields-table__text">ime</p>
+        <p className="category-fields-table__text show-on-pc">autor</p>
+        <p className="category-fields-table__text show-on-pc">datum</p>
+        <p className="category-fields-table__text">obrisi</p>
+        <p className="category-fields-table__text">uredi</p>
       </div>
       {/* end of category fields table */}
       {/* all categories table */}
@@ -45,18 +45,20 @@ const AllCategories = () => {
               key={_id}
               className="category-fields-table single-category-field"
             >
-              <p>{name}</p>
-              <p className="show-on-pc">{author}</p>
-              <p className="show-on-pc">{convertDate(createdAt)}</p>
+              <p className="category-fields-table__text">{name}</p>
+              <p className="category-fields-table__text show-on-pc">{author}</p>
+              <p className="category-fields-table__text show-on-pc">
+                {convertDate(createdAt)}
+              </p>
               <p
-                className="delete-icon"
+                className="category-fields-table__text delete-icon"
                 onClick={() => {
                   deleteCategory(_id);
                 }}
               >
                 <i>{trash}</i>
               </p>
-              <p className="edit-icon">
+              <p className="category-fields-table__text edit-icon">
                 <Link
                   className="span-link-delete"
                   to={`/autor/kategorije/uredi-kategoriju/${_id}`}
@@ -80,12 +82,12 @@ const Wrapper = styled.article`
   .add-category-container {
     text-align: center;
   }
-  .add-category-container span {
+  .add-category-container__text {
     text-transform: uppercase;
     padding: calc(var(--padding-small) / 4) calc(var(--padding-small) / 2);
     transition: var(--transition);
   }
-  .add-category-container span:last-child {
+  .add-category-container__text:last-child {
     background-color: var(--clr-primary-5);
     border-radius: 50%;
   }
@@ -113,7 +115,7 @@ const Wrapper = styled.article`
     color: var(--clr-primary-5);
     transition: var(--transition);
   }
-  .add-category-container span:last-child:hover {
+  .add-category-container__text:last-child:hover {
     cursor: pointer;
     background-color: var(--clr-black-1);
     color: var(--clr-white);
@@ -127,7 +129,7 @@ const Wrapper = styled.article`
     grid-column-gap: 1rem;
     padding: var(--padding-small);
   }
-  .category-fields-table p {
+  .category-fields-table__text {
     text-align: center;
     margin-bottom: 0px;
     text-transform: uppercase;

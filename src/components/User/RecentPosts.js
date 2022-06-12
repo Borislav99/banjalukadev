@@ -28,17 +28,21 @@ const RecentPosts = () => {
           const { categoryName, authorName, id, main_img, title } = item;
           return (
             <article key={id} className="single-post">
-              <div className="single-post-img-container">
-                <img className="single-post-image" src={main_img} alt={title} />
-                <Link to={`/objava/${id}`} className="single-post-img-link">
+              <div className="single-post__img-container">
+                <img
+                  className="single-post__image"
+                  src={main_img}
+                  alt={title}
+                />
+                <Link to={`/objava/${id}`} className="single-post__image-link">
                   <i className="fontawesome">{copy}</i>
                 </Link>
               </div>
               {/* single post footer */}
               <div className="single-post-footer">
-                <span className="post-date">{title}</span> /
-                <span className="post-date">{categoryName}</span> /
-                <span className="post-date">{authorName}</span>
+                <span className="single-post-footer__text">{title}</span> /
+                <span className="single-post-footer__text">{categoryName}</span>{" "}
+                /<span className="single-post-footer__text">{authorName}</span>
               </div>
               {/* end of single post footer */}
             </article>
@@ -51,7 +55,6 @@ const RecentPosts = () => {
 };
 const Wrapper = styled.section`
   background-color: var(--clr-grey-10);
-  /* border: 1px solid red; */
   .posts-container {
     padding: 0 var(--margin-small);
   }
@@ -59,20 +62,20 @@ const Wrapper = styled.section`
     margin-bottom: var(--margin-medium);
     transition: var(--transition);
   }
-  .single-post:hover .single-post-img-link {
+  .single-post:hover .single-post__image-link {
     opacity: 1;
     top: 50%;
   }
   .single-post:hover {
     opacity: 0.8;
   }
-  .posts-container article img {
+  .single-post__image {
     border-radius: var(--radius);
   }
-  .single-post-img-container {
+  .single-post__img-container {
     position: relative;
   }
-  .single-post-img-link {
+  .single-post__image-link {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -89,12 +92,12 @@ const Wrapper = styled.section`
     text-align: center;
     margin-top: var(--margin-small);
   }
-  .single-post-footer span {
+  .single-post-footer__text {
     font-weight: 999;
     color: var(--clr-grey-5);
     font-style: italic;
   }
-  .single-post-image {
+  .single-post__image {
     height: 15rem;
     object-fit: cover;
   }
@@ -114,7 +117,7 @@ const Wrapper = styled.section`
     .single-post {
       margin-bottom: 0;
     }
-    .single-post-image {
+    .single-post__image {
       height: 20rem;
       object-fit: cover;
     }

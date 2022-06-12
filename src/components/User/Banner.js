@@ -13,15 +13,17 @@ const Banner = () => {
   // context stuff
   const { changeActiveLink } = useUserContext();
   return (
-    <Wrapper>
+    <Wrapper className="banner">
       <div className="banner-text-container">
-        <h3>banjalucki web dev portal</h3>
-        <p>
+        <h3 className="banner-text-container__title">
+          banjalucki web dev portal
+        </h3>
+        <p className="banner-text-container__text">
           Prvi banjalucki web dev portal. Od programera za programere.
           Procitajte novosti iz dev svijeta.{" "}
         </p>
         <Link
-          className="btn banner-btn"
+          className="btn btn--banner-btn"
           to={"/objave"}
           onClick={() => {
             changeActiveLink("objave");
@@ -30,7 +32,7 @@ const Banner = () => {
           procitaj vise
         </Link>
       </div>
-      <a href="#portal-section" className="banner-section-btn">
+      <a href="#portal-section" className="btn--banner-section">
         <i className="fontawesome">{down}</i>
       </a>
     </Wrapper>
@@ -47,19 +49,19 @@ const Wrapper = styled.div`
     color: var(--clr-white);
     text-align: center;
   }
-  .banner-text-container h3 {
+  .banner-text-container__title {
     text-transform: uppercase;
   }
-  .banner-text-container p {
+  .banner-text-container__text {
     color: var(--clr-white);
   }
-  .banner-btn {
+  .btn--banner-btn {
     background-color: var(--clr-white);
     border-radius: var(--radius);
     color: var(--clr-primary-5);
     font-weight: 999;
   }
-  .banner-section-btn {
+  .btn--banner-section {
     position: absolute;
     bottom: var(--margin-small);
     background-color: transparent;

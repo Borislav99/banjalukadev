@@ -5,10 +5,14 @@ import styled from "styled-components";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <Wrapper className="section">
+    <Wrapper className="section footer">
       <div className="footer-text-container">
-        <p>
-          &copy; {year} <span>banjalukadev</span> sva prava zadrzana
+        <p className="footer-text-container__text">
+          &copy; {year}{" "}
+          <span className="footer-text-container__text--blue">
+            banjalukadev
+          </span>{" "}
+          sva prava zadrzana
         </p>
       </div>
     </Wrapper>
@@ -24,15 +28,15 @@ const Wrapper = styled.footer`
     text-transform: uppercase;
     font-weight: 999;
   }
-  .footer-text-container p {
+  .footer-text-container__text {
     font-size: 0.75rem;
     color: var(--clr-white);
   }
-  .footer-text-container p span {
+  .footer-text-container__text--blue {
     color: var(--clr-primary-5);
   }
   @media only screen and (min-width: 500px) {
-    .footer-text-container p {
+    .footer-text-container__text {
       font-size: 1rem;
     }
   }

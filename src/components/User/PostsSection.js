@@ -26,21 +26,21 @@ const PostsSection = () => {
                 <div key={id} className="single-post">
                   <h3>{title}</h3>
                   <div className="information-container">
-                    <span>
+                    <span className="information-container__text">
                       <i>{calendar}</i>
                       <span className="fontawesome">{date}</span>
                     </span>
-                    <span>
+                    <span className="information-container__text">
                       <i>{news}</i>
                       <span className="fontawesome">{categoryName}</span>
                     </span>
-                    <span>
+                    <span className="information-container__text">
                       <i>{userIcon}</i>
                       <span className="fontawesome">{authorName}</span>
                     </span>
                   </div>
-                  <p className="single-post-text">{removeMarkdown(text)}.</p>
-                  <Link to={`/objava/${id}`} className="single-post-btn">
+                  <p className="single-post__text">{removeMarkdown(text)}.</p>
+                  <Link to={`/objava/${id}`} className="btn--single-post">
                     procitaj
                   </Link>
                 </div>
@@ -50,19 +50,21 @@ const PostsSection = () => {
           {/* end of posts container */}
           {/* categories container */}
           <article className="categories-container">
-            <h3>kategorije</h3>
+            <h3 className="categories-container__title">kategorije</h3>
             {/* categories list */}
             <ul className="categories-list">
               <li
-                className="single-category"
+                className="categories-list__item"
                 onClick={() => {
                   filterPosts("sve");
                 }}
               >
-                <span className="category-name" href="#">
+                <span className="categories-list__text" href="#">
                   sve
                 </span>
-                <span>&nbsp; ({posts.length})</span>
+                <span className="categories-list__counter">
+                  &nbsp; ({posts.length})
+                </span>
               </li>
               {categories.map((item) => {
                 const { id, name, counter } = item;
@@ -70,23 +72,24 @@ const PostsSection = () => {
                   return (
                     <li
                       key={id}
-                      className="single-category"
+                      className="categories-list__item"
                       onClick={() => {
                         filterPosts(name);
                       }}
                     >
-                      <span className="category-name" href="#">
+                      <span className="categories-list__text" href="#">
                         {name}
                       </span>
                       <span>&nbsp; ({counter})</span>
                     </li>
                   );
+                } else {
+                  return null;
                 }
-                return null;
               })}
             </ul>
             {/* end of categories list */}
-            <p>
+            <p className="categories-container__text">
               Filtrirajte novosti po kategorijama. Potrebno je samo izabrati
               zeljenu kategoriju.
             </p>
@@ -105,41 +108,41 @@ const Wrapper = styled.section`
   .news-container > article {
     margin-bottom: var(--margin-small);
   }
-  .information-container span {
+  .information-container__text {
     color: var(--clr-grey-5);
   }
-  .information-container span:not(:last-child) {
+  .information-container__text:not(:last-child) {
     margin-right: calc(var(--margin-small) / 2);
   }
   .single-post:not(:last-child) {
     margin-bottom: var(--margin-small);
   }
-  .single-post-btn {
+  .btn--single-post {
     color: var(--clr-primary-5);
     text-transform: uppercase;
     font-weight: 999;
     transition: var(--transition);
   }
-  .single-post-btn:hover {
+  .btn--single-post:hover {
     color: var(--clr-black-1);
   }
-  .categories-container p {
+  .categories-container__text {
     margin-top: var(--margin-small);
     font-weight: 999;
   }
   .categories-list {
     display: block;
   }
-  .categories-list li {
+  .categories-list__item {
     display: block;
   }
   .categories-list li a {
     color: var(--clr-primary-5);
   }
-  .single-category .category-name {
+  .categories-list__item .categories-list__text {
     color: var(--clr-primary-5);
   }
-  .single-category .category-name:hover {
+  .categories-list__item .categories-list__text:hover {
     cursor: pointer;
   }
   @media only screen and (min-width: 500px) {

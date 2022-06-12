@@ -62,22 +62,28 @@ const AddCategory = () => {
           }}
         >
           <div className="form-control">
-            <label htmlFor="name">naslov</label>
+            <label className="form-control__label" htmlFor="name">
+              naslov
+            </label>
             <input
               type="text"
               name="name"
               id="name"
               value={name}
+              className="form-control__input"
               onChange={(e) => {
                 setName(e.target.value);
               }}
             />
           </div>
           <div className="form-control">
-            <label htmlFor="category">kategorija</label>
+            <label htmlFor="category" className="form-control__label">
+              kategorija
+            </label>
             <select
               name="category"
               id="category"
+              className="form-control__select"
               onChange={(e) => {
                 setCategory(e.target.value);
               }}
@@ -85,7 +91,11 @@ const AddCategory = () => {
               {categories.map((item) => {
                 const { _id, name } = item;
                 return (
-                  <option key={_id} value={name}>
+                  <option
+                    key={_id}
+                    value={name}
+                    className="form-control__option"
+                  >
                     {name}
                   </option>
                 );
@@ -94,11 +104,14 @@ const AddCategory = () => {
             {/* <input type="text" name="author" id="" /> */}
           </div>
           <div className="form-control file-input">
-            <label htmlFor="thumbnail">naslovna slika</label>
+            <label className="form-control__label" htmlFor="thumbnail">
+              naslovna slika
+            </label>
             <input
               type="file"
               name="thumbnail"
               id="thumbnail"
+              className="form-control__input file-input__input"
               onChange={(e) => {
                 const file = e.target.files;
                 setThumbnail(file);
@@ -106,10 +119,13 @@ const AddCategory = () => {
             />
           </div>
           <div className="form-control file-input">
-            <label htmlFor="otherImages">Dodatne slike</label>
+            <label className="form-control__label" htmlFor="otherImages">
+              Dodatne slike
+            </label>
             <input
               type="file"
               multiple
+              className="form-control__input file-input__input"
               onChange={(e) => {
                 const files = e.target.files;
                 setOtherImages(files);
@@ -117,11 +133,14 @@ const AddCategory = () => {
             />
           </div>
           <div className="form-control">
-            <label htmlFor="youtube">youtube link</label>
+            <label className="form-control__label" htmlFor="youtube">
+              youtube link
+            </label>
             <input
               type="text"
               name="youtube"
               id="youtube"
+              className="form-control__input"
               value={youtube}
               onChange={(e) => {
                 setYoutube(e.target.value);
@@ -134,7 +153,7 @@ const AddCategory = () => {
             value={markdown}
             onChange={(editor, data, value) => setMarkdown(value)}
           />
-          <input className="btn form-btn" type="submit" value="uredi objavu" />
+          <input className="btn btn--form" type="submit" value="uredi objavu" />
         </form>
         {/* <!-- end of form --> */}
       </div>
@@ -150,15 +169,15 @@ const Wrapper = styled.article`
   .form-control {
     margin-bottom: var(--margin-small);
   }
-  .form-control label {
+  .form-control__label {
     text-transform: uppercase;
     font-weight: 999;
     color: var(--clr-black-1);
     font-size: 1.5rem;
     display: block;
   }
-  .form-control input,
-  .form-control select,
+  .form-control__input,
+  .form-control__select,
   .markdown-editor {
     width: 100%;
     padding: calc(var(--padding-small) / 2);
@@ -167,20 +186,20 @@ const Wrapper = styled.article`
     margin: 0 auto;
     margin-bottom: var(--margin-small);
   }
-  .form-btn {
+  .btn--form {
     width: 100%;
   }
-  .file-input input {
+  .file-input__input {
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: var(--radius);
   }
   @media only screen and (min-width: 500px) {
-    .form-control input,
-    .form-control select,
+    .form-control__input,
+    .form-control__select,
     .markdown-editor {
       width: 50%;
     }
-    .form-btn {
+    .btn--form {
       width: 50%;
     }
   }

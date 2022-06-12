@@ -40,6 +40,7 @@ const AddCategory = () => {
         {/* end of add error container */}
         {/* <!-- form --> */}
         <form
+          className="add-category-form"
           onSubmit={(e) => {
             e.preventDefault();
             addNewCategory(categoryName, username);
@@ -47,18 +48,20 @@ const AddCategory = () => {
           }}
         >
           <div className="form-control">
-            <label htmlFor="name">ime kategorije</label>
+            <label className="form-control__label" htmlFor="name">
+              ime kategorije
+            </label>
             <input
               type="text"
               name="name"
-              id=""
+              className="form-control__input"
               onChange={(e) => {
                 setCategoryName(e.target.value);
               }}
             />
           </div>
           <input
-            className="btn form-btn"
+            className="btn btn--form"
             type="submit"
             value="posalji"
             disabled={addError ? true : false}
@@ -78,25 +81,25 @@ const Wrapper = styled.article`
   .form-control {
     margin-bottom: var(--margin-small);
   }
-  .form-control label {
+  .form-control__label {
     text-transform: uppercase;
     font-weight: 999;
     color: var(--clr-black-1);
     font-size: 1.5rem;
     display: block;
   }
-  .form-control input {
+  .form-control__input {
     width: 100%;
     padding: calc(var(--padding-small) / 2);
   }
-  .form-btn {
+  .btn--form {
     width: 100%;
   }
   @media only screen and (min-width: 500px) {
-    .form-control input {
+    .form-control__input {
       width: 50%;
     }
-    .form-btn {
+    .btn--form {
       width: 50%;
     }
   }

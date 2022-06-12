@@ -17,13 +17,13 @@ const Information = () => {
           <div className="section-title-divider"></div>
         </div>
         {/* end of section title */}
-        <div className="portal-section-container">
+        <div className="portal-section__container">
           {portalInformation.map((item, index) => {
             const { title, text } = item;
             return (
               <article key={index} className="single-portal">
-                <h4>{title}</h4>
-                <p>{text}</p>
+                <h4 className="single-portal__title">{title}</h4>
+                <p className="single-portal__text">{text}</p>
               </article>
             );
           })}
@@ -35,26 +35,26 @@ const Information = () => {
 };
 const Wrapper = styled.section`
   background-color: var(--clr-grey-10);
-  .portal-section-container h4 {
+  .single-portal__title {
     text-align: center;
     font-size: 1rem;
   }
   @media only screen and (min-width: 500px) {
-    .portal-section-container h4 {
+    .single-portal__title {
       font-size: 1.5rem;
     }
   }
   @media only screen and (min-width: 800px) {
-    .portal-section-container {
+    .portal-section__container {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
     }
 
-    .portal-section-container > article {
+    .portal-section__container > article {
       flex: 0 0 calc(33.33% - var(--margin-small));
     }
-    .portal-section-container h4 {
+    .single-portal__title {
       font-size: 2rem;
     }
   }

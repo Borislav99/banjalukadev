@@ -16,9 +16,9 @@ const AdminDashboard = () => {
       <div className="admin-data-container">
         {/* single data */}
         <div className="admin-single-data">
-          <p>kategorije</p>
-          <div className="single-data-footer">
-            <span>
+          <p className="admin-single-data__text">kategorije</p>
+          <div className="admin-single-data__footer">
+            <span className="admin-single-data__icon">
               <i>{hammer}</i>
             </span>
             <span className="fontawesome">{categories.length}</span>
@@ -27,9 +27,9 @@ const AdminDashboard = () => {
         {/* end of single data */}
         {/* single data */}
         <div className="admin-single-data">
-          <p>objave</p>
-          <div className="single-data-footer">
-            <span>
+          <p className="admin-single-data__text">objave</p>
+          <div className="admin-single-data__footer">
+            <span className="admin-single-data__icon">
               <i>{copy}</i>
             </span>
             <span className="fontawesome">{posts.length}</span>
@@ -60,7 +60,7 @@ const Wrapper = styled.article`
     border-radius: var(--radius);
     flex: 0 0 calc(50% - 2rem);
   }
-  .admin-single-data p {
+  .admin-single-data__text {
     color: var(--clr-black-1);
     text-transform: capitalize;
     font-weight: 999;
@@ -72,7 +72,7 @@ const Wrapper = styled.article`
   }
   @media only screen and (min-width: 800px) {
     flex: 0 0 75%;
-    .admin-single-data p {
+    .admin-single-data__text {
       font-size: 1.5rem;
     }
   }

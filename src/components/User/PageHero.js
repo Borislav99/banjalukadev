@@ -13,16 +13,17 @@ const PageHero = ({ title }) => {
       <div className="section-center">
         {/* hero text container */}
         <div className="hero-text-container">
-          <h4>{title}</h4>
+          <h4 className="hero-text-container__title">{title}</h4>
           <Link
             to={"/"}
+            className="hero-text-container--home-link"
             onClick={() => {
               changeActiveLink("pocetna");
             }}
           >
             <span>pocetna</span>
           </Link>
-          <span> / {title}</span>
+          <span className="hero-text-container--current-link"> / {title}</span>
         </div>
         {/* end of hero text container */}
       </div>
@@ -32,13 +33,13 @@ const PageHero = ({ title }) => {
 // styled components
 const Wrapper = styled.section`
   background-color: var(--clr-grey-10);
-  .hero-text-container a,
+  .hero-text-container--home-link,
   .hero-text-container span {
     text-transform: capitalize;
     color: var(--clr-black-1);
     font-weight: 999;
   }
-  .hero-text-container a span {
+  .hero-text-container--home-link span {
     color: var(--clr-primary-5);
   }
 `;

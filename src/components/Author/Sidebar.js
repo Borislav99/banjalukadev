@@ -16,11 +16,11 @@ const Sidebar = () => {
     <Wrapper value={sidebarActive ? "0%" : "-100%"}>
       {/* aside header */}
       <div className="aside-header">
-        <Link to={"/autor"}>
-          banjaluka<span>dev</span>
+        <Link className="aside-header__logo" to={"/autor"}>
+          banjaluka<span className="aside-header__logo--blue">dev</span>
         </Link>
         <span
-          className="sidebar-burger-menu"
+          className="aside-header__close sidebar-burger-menu"
           onClick={() => {
             sidebarFunction(false);
           }}
@@ -33,10 +33,14 @@ const Sidebar = () => {
         {authorLinks.map((item, index) => {
           const { title, url } = item;
           return (
-            <li key={index} className="aside-list-item">
+            <li key={index} className="aside-links__item">
               <Link
                 to={url}
-                className={activeLink === title ? "active-aside-item" : null}
+                className={
+                  activeLink === title
+                    ? "aside-links__link active-aside-item"
+                    : "aside-links__link"
+                }
                 onClick={() => {
                   sidebarFunction(false);
                   changeActiveLink(title);
@@ -65,7 +69,8 @@ const Wrapper = styled.aside`
     flex-wrap: nowrap;
     justify-content: space-between;
   }
-  a {
+  .aside-links__link,
+  .aside-header__logo {
     font-size: 1rem;
     align-items: center;
     text-transform: uppercase;
@@ -77,19 +82,19 @@ const Wrapper = styled.aside`
     display: block;
     color: var(--clr-red);
   }
-  a span {
+  .aside-header__logo--blue {
     color: var(--clr-white);
   }
   .aside-links {
     margin-top: var(--margin-small);
   }
-  .aside-list-item {
+  .aside-links__item {
     display: block !important;
   }
-  .aside-list-item a {
+  .aside-links__link {
     text-transform: capitalize;
   }
-  .aside-list-item:not(:last-child) {
+  .aside-links__item:not(:last-child) {
     margin-bottom: var(--margin-small);
   }
   .active-aside-item {

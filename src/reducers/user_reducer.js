@@ -39,7 +39,7 @@ const user_reducer = (state, action) => {
         if (item.categoryName === action.payload) {
           return item;
         } else {
-          return state.posts;
+          return null;
         }
       });
       return { ...state, filteredPosts: newArray };

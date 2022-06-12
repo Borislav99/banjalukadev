@@ -28,13 +28,13 @@ const Video = () => {
     <Wrapper>
       <article className="youtube-container">
         {/* header */}
-        <div className="youtube-container-header">
+        <div className="youtube-container__header">
           <div>
-            <span>kurs</span>
+            <span className="youtube-container__header--logo">kurs</span>
             menadzer
           </div>
           <span
-            className="close-youtube-btn"
+            className="btn--close-youtube"
             onClick={() => {
               setTutorial(false);
             }}
@@ -83,40 +83,40 @@ const Wrapper = styled.section`
     animation: youtubeAnimation 1s 0.5s 1;
     animation-fill-mode: forwards;
   }
-  .youtube-container-header {
+  .youtube-container__header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: calc(var(--padding-small) / 2);
   }
-  .youtube-container-header span {
+  .youtube-container__header--logo {
     font-size: 1.25rem;
     transition: var(--transition);
     color: var(--clr-white);
   }
-  .close-youtube-btn:hover {
+  .btn--close-youtube:hover {
     color: var(--clr-red);
     cursor: pointer;
   }
-  .youtube-container-header div {
+  .youtube-container__header div {
     margin-right: var(--margin-medium);
     text-transform: uppercase;
     font-size: 1.25rem;
     color: var(--clr-white);
     transition: var(--transition);
   }
-  .youtube-container-header div span {
+  .youtube-container__header div span {
     color: var(--clr-primary-5);
   }
   @media screen and (min-width: 567px) {
     .youtube-container {
       height: 60vh;
     }
-    .youtube-container-header span {
+    .youtube-container__header span {
       font-size: 1.5rem;
     }
-    .youtube-container-header div {
+    .youtube-container__header div {
       margin-right: calc(var(--margin-big) * 2);
       text-transform: uppercase;
       font-size: 1.5rem;
@@ -127,10 +127,10 @@ const Wrapper = styled.section`
     .youtube-container {
       height: 80vh;
     }
-    .youtube-container-header span {
+    .youtube-container__header span {
       font-size: 2rem;
     }
-    .youtube-container-header div {
+    .youtube-container__header div {
       margin-right: calc(var(--margin-big) * 2);
       text-transform: uppercase;
       font-size: 2rem;

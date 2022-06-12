@@ -15,7 +15,7 @@ const AdminSidebar = () => {
     <Wrapper>
       <h3>servisi</h3>
       <div className="admin-sidebar-services">
-        <ul>
+        <ul className="admin-navigation">
           {/* single service */}
           {authorLinks.map((item, index) => {
             const { title, url, icon } = item;
@@ -24,18 +24,19 @@ const AdminSidebar = () => {
                 key={index}
                 className={
                   activeLink === title
-                    ? "single-service active-service"
-                    : "single-service"
+                    ? "admin-navigation__item active-service"
+                    : "admin-navigation__item"
                 }
               >
                 <Link
+                  className="admin-navigation__link"
                   to={url}
                   onClick={() => {
                     changeActiveLink(title);
                   }}
                 >
                   {title}
-                  <span className="single-service-icon">
+                  <span className="admin-navigation__item-icon">
                     <i className="fontawesome">{icon}</i>
                   </span>
                 </Link>
@@ -54,25 +55,23 @@ const Wrapper = styled.article`
   border-bottom: 0.2rem solid var(--clr-black-1);
   padding: var(--padding-medium);
   background-color: var(--clr-primary-5);
-  .single-service {
+  .admin-navigation__item {
     margin-bottom: var(--margin-small);
     transition: var(--transition);
   }
-  .single-service a {
+  .admin-navigation__link {
     transition: var(--transition);
     color: var(--clr-black-1);
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    text-transform: uppercase;
   }
-  .single-service a:hover {
+  .admin-navigation__link:hover {
     color: var(--clr-white);
     cursor: pointer;
   }
-  .single-service a {
-    text-transform: uppercase;
-  }
-  .single-service a span {
+  .admin-navigation__item-icon {
     margin-left: calc(var(--margin-small) / 4);
   }
   .active-service {

@@ -17,18 +17,18 @@ const Header = () => {
   } = useAuthorContext();
   const { changeActiveLink } = useAuthorContext();
   return (
-    <Wrapper>
-      <Link to={"/autor"}>
-        banjaluka<span>dev</span>
+    <Wrapper className="header">
+      <Link to={"/autor"} className="header__logo">
+        banjaluka<span className="header__logo-blue">dev</span>
       </Link>
-      <div className="logout-container">
+      <div className="header__logout-container logout-container">
         {gender === "m" ? (
-          <span>dobrodosao {username}</span>
+          <span className="logout-container__icon">dobrodosao {username}</span>
         ) : (
-          <span>dobrodosla {username}</span>
+          <span className="logout-container__icon">dobrodosla {username}</span>
         )}
         <span
-          className="author-bars-icon"
+          className="logout-container__icon author-bars-icon"
           onClick={() => {
             sidebarFunction(true);
           }}
@@ -37,6 +37,7 @@ const Header = () => {
           <i className="fontawesome">{barsIcon}</i>
         </span>
         <span
+          className="logout-container__icon"
           onClick={() => {
             logoutAuthor();
             changeActiveLink("pocetna");
@@ -62,7 +63,7 @@ const Wrapper = styled.header`
   z-index: 999;
   -webkit-box-shadow: 1px 1px 15px 4px #000000;
   box-shadow: 1px 1px 15px 4px #000000;
-  a {
+  .header__logo {
     font-size: 1rem;
     align-items: center;
     text-transform: uppercase;
@@ -70,21 +71,21 @@ const Wrapper = styled.header`
     transition: var(--transition);
     font-weight: 999;
   }
-  a span {
+  .header__logo--blue {
     color: var(--clr-primary-5);
   }
   hover {
     color: var(--clr-black-1);
   }
-  .logout-container span {
+  .logout-container__icon {
     text-transform: capitalize;
     transition: var(--transition);
   }
-  .logout-container span:hover {
+  .logout-container__icon:hover {
     color: var(--clr-primary-5);
     cursor: pointer;
   }
-  .logout-container span:first-child {
+  .logout-container__icon:first-child {
     margin-right: calc(var(--margin-small) / 2);
     display: none;
   }
@@ -93,7 +94,7 @@ const Wrapper = styled.header`
   }
   @media only screen and (min-width: 800px) {
     padding: var(--padding-small) calc(var(--padding-small) / 2);
-    .logout-container span:first-child {
+    .logout-container__icon:first-child {
       margin-right: calc(var(--margin-small) / 2);
       display: inline-block;
     }

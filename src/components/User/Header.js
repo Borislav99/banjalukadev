@@ -14,31 +14,36 @@ const Header = () => {
   const { sidebarFunction, activeLink, changeActiveLink } = useUserContext();
   return (
     // Header
-    <Wrapper>
+    <Wrapper className="header">
       <Link
+        className="header__logo"
         to={"/"}
         onClick={() => {
           changeActiveLink("pocetna");
         }}
       >
-        banjaluka<span>dev</span>
+        banjaluka<span className="header__logo--dev">dev</span>
       </Link>
       <span
-        className="burger-menu"
+        className="header__menu burger-menu"
         onClick={() => {
           sidebarFunction(true);
         }}
       >
         <i className="fontawesome">{barsIcon}</i>
       </span>
-      <ul>
+      <ul className="navigation">
         {userHeaderLinks.map((item, index) => {
           const { title, url } = item;
           return (
-            <li key={index}>
+            <li key={index} className="navigation__item">
               {/* add active link */}
               <Link
-                className={activeLink === title ? "active-link" : null}
+                className={
+                  activeLink === title
+                    ? "active-link navigation__link"
+                    : "navigation__link"
+                }
                 onClick={() => {
                   changeActiveLink(title);
                 }}
@@ -67,7 +72,8 @@ const Wrapper = styled.header`
   z-index: 999;
   -webkit-box-shadow: 1px 1px 15px 4px #000000;
   box-shadow: 1px 1px 15px 4px #000000;
-  a {
+  .header__logo,
+  .navigation__link {
     font-size: 1rem;
     align-items: center;
     text-transform: uppercase;
@@ -75,21 +81,22 @@ const Wrapper = styled.header`
     transition: var(--transition);
     font-weight: 999;
   }
-  a span {
+  .header__logo--dev {
     color: var(--clr-primary-5);
   }
-  a:hover {
+  .header__logo:hover,
+  .navigation__link:hover {
     color: var(--clr-black-1);
   }
-  ul {
+  .navigation {
     list-style-type: none;
     display: none;
   }
-  ul li {
+  .navigation__item {
     display: inline-block;
     margin-right: calc(var(--margin-small) / 2);
   }
-  ul li a {
+  .navigation__link {
     text-transform: capitalize;
   }
   .burger-menu {
@@ -104,7 +111,7 @@ const Wrapper = styled.header`
   }
   @media only screen and (min-width: 800px) {
     padding: var(--padding-small) calc(var(--padding-small) / 2);
-    ul {
+    .navigation {
       display: block;
     }
     .burger-menu {

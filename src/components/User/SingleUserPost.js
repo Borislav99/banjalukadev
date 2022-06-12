@@ -50,26 +50,26 @@ const SingleUserPost = () => {
           <article className="posts-container">
             {/* single post */}
             <div className="single-post">
-              <h3>{title}</h3>
+              <h3 className="single-post__title">{title}</h3>
               <div className="information-container">
-                <span>
+                <span className="information-container__text">
                   <i>{calendar}</i>
                   <span className="fontawesome">{date}</span>
                 </span>
-                <span>
+                <span className="information-container__text">
                   <i>{news}</i>
                   <span className="fontawesome">{categoryName}</span>
                 </span>
-                <span>
+                <span className="information-container__text">
                   <i>{userIcon}</i>
                   <span className="fontawesome">{authorName}</span>
                 </span>
               </div>
               <div className="divider"></div>
-              <div className="single-post-img-container">
-                <img src={main_img} alt="" />
+              <div className="single-post__image-container">
+                <img src={main_img} alt="" className="single-post__image" />
               </div>
-              <div className="single-post-text">
+              <div className="single-post__text">
                 <MDEditor.Markdown className="markdown" source={text} />
               </div>
               {/* img gallery */}
@@ -82,10 +82,10 @@ const SingleUserPost = () => {
                 />
               </div>
               {/* end of img gallery */}
-              <div className="single-post-btn-container">
+              <div className="single-post__button-container">
                 <Link
                   to={"/"}
-                  className="btn single-post-btn"
+                  className="btn btn--single-post-btn"
                   onClick={() => {
                     changeActiveLink("pocetna");
                   }}
@@ -93,7 +93,7 @@ const SingleUserPost = () => {
                   nazad
                 </Link>
                 <button
-                  className="btn single-post-btn"
+                  className="btn btn--single-post-btn"
                   onClick={() => {
                     setTutorial(true);
                   }}
@@ -120,22 +120,22 @@ const Wrapper = styled.section`
   .news-container > article {
     margin-bottom: var(--margin-small);
   }
-  .information-container span {
+  .information-container__text {
     color: var(--clr-grey-5);
   }
-  .information-container span:not(:last-child) {
+  .information-container__text:not(:last-child) {
     margin-right: calc(var(--margin-small) / 2);
   }
   .single-post:not(:last-child) {
     margin-bottom: var(--margin-small);
   }
-  .single-post-btn {
+  .btn--single-post-btn {
     color: var(--clr-primary-5);
     text-transform: uppercase;
     font-weight: 999;
     transition: var(--transition);
   }
-  .single-post-btn:hover {
+  .btn--single-post-btn:hover {
     color: var(--clr-black-1);
   }
   .image-gallery-image {
@@ -163,20 +163,20 @@ const Wrapper = styled.section`
   }
   /* ----- POSTS SECTION ----- */
   /* ----- SINGLE POST ----- */
-  .single-post-img-container {
+  .single-post__image-container {
     margin-bottom: var(--margin-small);
   }
-  .single-post-text {
+  .single-post__text {
     margin-bottom: var(--margin-small);
   }
-  .single-post-btn-container {
+  .single-post__button-container {
     text-align: center;
   }
-  .single-post-btn {
+  .btn--single-post-btn {
     color: var(--clr-white);
     border-radius: var(--radius);
   }
-  .single-post-btn:first-child {
+  .btn--single-post-btn:first-child {
     margin-right: var(--margin-small);
   }
 `;

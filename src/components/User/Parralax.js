@@ -8,8 +8,10 @@ const Parralax = () => {
   return (
     <Wrapper className="section">
       <div className="parallax-text-container">
-        <h3>sta je za vas tehnologija? </h3>
-        <p>
+        <h3 className="parallax-text-container__title">
+          sta je za vas tehnologija?{" "}
+        </h3>
+        <p className="parallax-text-container__text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
           distinctio temporibus tempora quibusdam nisi debitis odio velit
           voluptatibus deleniti aut?
@@ -29,11 +31,11 @@ const Wrapper = styled.section`
   .parallax-text-container {
     text-align: center;
   }
-  .parallax-text-container h3 {
+  .parallax-text-container__title {
     text-transform: uppercase;
     color: var(--clr-white);
   }
-  .parallax-text-container p {
+  .parallax-text-container__text {
     color: var(--clr-white);
   }
   @media only screen and (min-width: 800px) {
